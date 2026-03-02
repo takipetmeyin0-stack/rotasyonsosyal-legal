@@ -116,6 +116,11 @@
                 document.getElementById('alici_eposta').textContent = "Belirtilmedi";
             }
             if (params.has('telefon') && params.get('telefon') !== '') document.getElementById('alici_telefon').textContent = params.get('telefon');
+            if (params.has('adres') && params.get('adres') !== '') {
+                document.getElementById('alici_adres').textContent = params.get('adres');
+            } else {
+                document.getElementById('alici_adres').textContent = "Adres Bilgisi Kayıtlı Değil / İsteğe Bağlı Dijital Hizmet";
+            }
             if (params.has('tarih')) document.getElementById('islem_tarihi').textContent = params.get('tarih');
         });
     </script>

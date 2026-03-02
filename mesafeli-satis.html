@@ -85,6 +85,7 @@
         Ad Soyad: <span id="alici_isim">Sistemden Alınıyor...</span><br>
         E-Posta: <span id="alici_eposta">Sistemden Alınıyor...</span><br>
         Telefon: <span id="alici_telefon">Belirtilmedi</span><br>
+        Adres: <span id="alici_adres">Sistemden Alınıyor...</span><br>
         İşlem Tarihi: <span id="islem_tarihi">Sistemden Alınıyor...</span><br>
         <br>
         Alıcı, Satıcı’ya ait bilgisayar yazılımı veya mobil uygulamasında (“Platform”) “Hesabım” sekmesindeki beyan
@@ -172,6 +173,11 @@
                 document.getElementById('alici_eposta').textContent = "Belirtilmedi";
             }
             if (params.has('telefon') && params.get('telefon') !== '') document.getElementById('alici_telefon').textContent = params.get('telefon');
+            if (params.has('adres') && params.get('adres') !== '') {
+                document.getElementById('alici_adres').textContent = params.get('adres');
+            } else {
+                document.getElementById('alici_adres').textContent = "Adres Bilgisi Kayıtlı Değil / İsteğe Bağlı Dijital Hizmet";
+            }
             if (params.has('tarih')) document.getElementById('islem_tarihi').textContent = params.get('tarih');
         });
     </script>
