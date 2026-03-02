@@ -60,6 +60,14 @@
             E-Posta: [Uygulama Destek E-Posta Adresi]</p>
     </div>
 
+    <div class="highlight">
+        <p><strong>ALICI BİLGİLERİ</strong></p>
+        <p>Ad Soyad: <span id="alici_isim">Sistemden Alınıyor...</span><br>
+            E-Posta: <span id="alici_eposta">Sistemden Alınıyor...</span><br>
+            Telefon: <span id="alici_telefon">Belirtilmedi</span><br>
+            İşlem Tarihi: <span id="islem_tarihi">Sistemden Alınıyor...</span></p>
+    </div>
+
     <h2>2. SÖZLEŞME KONUSU MAL VEYA HİZMETİN TEMEL NİTELİKLERİ VE FİYATI</h2>
     <p>Satın alınan ürün/hizmet; uygulama içi ayrıcalıklar, onaylı profil sertifikası (Mavi Tik), reklamsız kullanım
         veya dijital abonelik paketlerini kapsar. Bu hizmet, tamamen elektronik ortamda anında ifa edilen gayrimaddi bir
@@ -79,7 +87,8 @@
         hakkının istisnasıdır.</p>
     <p>Bu sebeple Kullanıcı, Mavi Tik, Premium Üyelik gibi satın aldığı dijital ayrıcalıklarda onay verip ödeme işlemini
         gerçekleştirdikten ve hizmet aktif edildikten sonra 14 günlük yasal cayma hakkını (iade hakkını)
-        <strong>kullanamayacağını</strong> peşinen kabul ve beyan eder.</p>
+        <strong>kullanamayacağını</strong> peşinen kabul ve beyan eder.
+    </p>
 
     <h2>5. GÜVENLİK VE UYUŞMAZLIKLARIN ÇÖZÜMÜ</h2>
     <p>Kredi kartı/banka kartı bilgileriniz doğrudan satıcı tarafımızca saklanmamakta olup, BDDK (Bankacılık Düzenleme
@@ -93,6 +102,23 @@
     <p><em>Kullanıcı, işbu Ön Bilgilendirme Formu'nda yer alan tüm maddeleri okuduğunu, anladığını ve ödeme onayı
             vererek ticari sözleşmeyi elektronik ortamda peşinen kabul ettiğini onaylar.</em></p>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('isim') && params.get('isim') !== '') {
+                document.getElementById('alici_isim').textContent = params.get('isim');
+            } else {
+                document.getElementById('alici_isim').textContent = "Kullanıcı";
+            }
+            if (params.has('eposta') && params.get('eposta') !== '') {
+                document.getElementById('alici_eposta').textContent = params.get('eposta');
+            } else {
+                document.getElementById('alici_eposta').textContent = "Belirtilmedi";
+            }
+            if (params.has('telefon') && params.get('telefon') !== '') document.getElementById('alici_telefon').textContent = params.get('telefon');
+            if (params.has('tarih')) document.getElementById('islem_tarihi').textContent = params.get('tarih');
+        });
+    </script>
 </body>
 
 </html>
